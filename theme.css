@@ -1,0 +1,309 @@
+/* ATLAS IRON AGE 3.2 — AURUM GLASS
+   Visual only. Sem migração de dados. Sobrescreve o CSS embutido do index.html. */
+
+:root{
+  color-scheme:dark!important;
+  --bg:#07080a;
+  --ink:#f3eee2;
+  --ink-dim:#a9a498;
+  --gold-1:#f6e4b0;
+  --gold-2:#d8b878;
+  --gold-3:#ab8342;
+  --gold-4:#6c5129;
+  --copper:#d08a52;
+  --steel:#8095ab;
+  --ruby:#c0524a;
+  --gold-grad:linear-gradient(135deg,#f6e4b0 0%,#d8b878 38%,#ab8342 100%);
+  --gold-grad-soft:linear-gradient(135deg,rgba(246,228,176,.18),rgba(171,131,66,.08));
+  --glass:linear-gradient(155deg,rgba(46,47,52,.78) 0%,rgba(24,25,28,.92) 55%,rgba(14,15,17,.96) 100%);
+  --edge:linear-gradient(150deg,rgba(246,228,176,.42),rgba(255,255,255,.07) 35%,rgba(255,255,255,.04) 65%,rgba(216,184,120,.30));
+  --r-xl:28px;--r-lg:22px;--r-md:16px;--r-sm:13px;
+  --display:Impact,'Arial Narrow Bold','Arial Narrow',-apple-system,sans-serif;
+  --text:-apple-system,BlinkMacSystemFont,"SF Pro Display",Inter,system-ui,sans-serif;
+  background:var(--bg)!important;color:var(--ink)!important;font-family:var(--text)!important;
+}
+
+/* ───────── Fundo: malha de luz ───────── */
+body{background:var(--bg)!important;color:var(--ink);min-height:100vh;-webkit-font-smoothing:antialiased}
+body::before{
+  content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
+  background:
+    radial-gradient(60% 38% at 12% -4%,rgba(216,184,120,.24),transparent 70%),
+    radial-gradient(48% 34% at 104% 28%,rgba(128,149,171,.16),transparent 70%),
+    radial-gradient(60% 40% at -6% 98%,rgba(208,138,82,.14),transparent 70%),
+    repeating-linear-gradient(0deg,transparent 0 3px,rgba(255,255,255,.012) 3px 4px);
+}
+::selection{background:#d8b87866;color:#fff}
+.shell{max-width:720px}
+
+/* ───────── Cabeçalho ───────── */
+header{
+  border-bottom:0!important;padding:14px 2px 18px!important;margin-bottom:22px!important;
+  min-height:100px;gap:12px;position:relative;
+}
+header::after{
+  content:"";position:absolute;left:0;right:0;bottom:0;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(216,184,120,.7) 30%,rgba(216,184,120,.7) 70%,transparent);
+}
+.brand{font-family:var(--display)!important;font-style:normal!important;font-weight:900!important;font-size:32px!important;letter-spacing:3px!important}
+.brand span{color:var(--gold-2)!important}
+.brand-logo{display:flex!important;align-items:center!important;min-width:0;line-height:0;text-shadow:none!important}
+.brand-logo img{
+  width:76px;height:76px;object-fit:contain;display:block;border-radius:22px;
+  filter:drop-shadow(0 6px 22px rgba(216,184,120,.35));
+}
+header>.tag{
+  font-family:var(--text)!important;font-size:10px!important;letter-spacing:1.6px!important;font-weight:800!important;
+  border:1px solid transparent!important;border-radius:999px!important;padding:8px 13px!important;white-space:nowrap;
+  background:linear-gradient(145deg,#2c2a24,#17181a) padding-box,var(--gold-grad) border-box!important;
+  color:var(--gold-1)!important;box-shadow:0 0 18px rgba(216,184,120,.16);
+}
+
+/* ───────── Tipografia ───────── */
+h1,h2,h3{font-family:var(--display);letter-spacing:.6px!important;font-weight:800}
+h1{
+  text-transform:uppercase;font-size:31px!important;line-height:1.08;
+  background:linear-gradient(180deg,#ffffff 0%,#f0e0b4 70%,#d8b878 100%);
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;
+}
+h2{text-transform:uppercase;font-size:20px!important;color:#f5efe0}
+h3{font-size:16px;color:#f1ead9;letter-spacing:.4px}
+.eyebrow{
+  font-weight:800;letter-spacing:2.2px!important;
+  background:var(--gold-grad);-webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;color:transparent!important;
+}
+.accent{color:var(--gold-1)!important}
+.muted,.notice,small{color:var(--ink-dim)!important}
+.metric{
+  font-variant-numeric:tabular-nums;font-family:var(--display);letter-spacing:.5px;
+  background:linear-gradient(180deg,#fff 10%,#ecdcae 100%);
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;
+}
+.metric .muted{-webkit-text-fill-color:var(--ink-dim);font-family:var(--text);letter-spacing:0}
+a{color:var(--gold-1)!important}
+
+/* ───────── Cards de vidro com borda em degradê ───────── */
+.card{
+  position:relative;overflow:hidden;
+  border:1px solid transparent!important;border-radius:var(--r-xl)!important;
+  background:var(--glass) padding-box,var(--edge) border-box!important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.08),0 18px 40px -12px rgba(0,0,0,.75),0 2px 6px rgba(0,0,0,.4)!important;
+  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+}
+.card::after{
+  content:"";position:absolute;inset:0;pointer-events:none;border-radius:inherit;
+  background:linear-gradient(180deg,rgba(255,255,255,.05),transparent 28%);
+}
+.hero{
+  background:
+    radial-gradient(120% 90% at 100% 0%,rgba(216,184,120,.30),transparent 60%),
+    radial-gradient(80% 80% at 0% 100%,rgba(208,138,82,.14),transparent 65%),
+    linear-gradient(140deg,#35302a 0%,#1b1c1e 60%,#101113 100%) padding-box,
+    linear-gradient(140deg,rgba(246,228,176,.85),rgba(171,131,66,.25) 45%,rgba(246,228,176,.45)) border-box!important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.12),0 22px 50px -14px rgba(0,0,0,.85),0 0 46px -12px rgba(216,184,120,.35)!important;
+}
+.hero::before{
+  content:"";position:absolute;top:-90px;right:-70px;width:240px;height:240px;border-radius:50%;
+  background:radial-gradient(circle,rgba(246,228,176,.32),transparent 66%);filter:blur(8px);pointer-events:none;
+  animation:breathe 6s ease-in-out infinite;
+}
+.mini{position:relative}
+.mini .metric{font-size:30px}
+
+/* ───────── Botões ───────── */
+.btn{
+  position:relative;border-radius:var(--r-md)!important;min-height:46px;
+  font-family:var(--display);letter-spacing:1.2px!important;font-size:14px!important;text-transform:uppercase;
+  background:linear-gradient(180deg,#f2dca0 0%,#d4b070 48%,#a98241 100%)!important;
+  color:#1b150a!important;border:1px solid rgba(255,238,190,.65)!important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.65),inset 0 -2px 0 rgba(90,60,15,.25),0 8px 20px -6px rgba(216,184,120,.45),0 2px 6px rgba(0,0,0,.4)!important;
+  text-shadow:0 1px 0 rgba(255,255,255,.35);
+  transition:transform .15s ease,filter .15s ease,box-shadow .2s ease;
+}
+.btn:hover{filter:brightness(1.07)}
+.btn:active{transform:scale(.97);filter:brightness(.95)}
+.btn.small{border-radius:var(--r-sm)!important;min-height:36px;font-size:12px!important}
+.btn.secondary{
+  background:linear-gradient(180deg,rgba(72,73,78,.9),rgba(36,37,40,.95))!important;
+  border:1px solid rgba(255,255,255,.14)!important;color:#f1ece0!important;text-shadow:none;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.14),0 6px 16px -6px rgba(0,0,0,.7)!important;
+}
+.btn.danger{
+  background:linear-gradient(180deg,#6a2f2c,#3e1c1b)!important;border:1px solid rgba(224,120,108,.5)!important;color:#ffe3dc!important;text-shadow:none;
+  box-shadow:inset 0 1px 0 rgba(255,200,190,.2),0 6px 16px -6px rgba(120,30,25,.6)!important;
+}
+.btn:disabled{opacity:.32;filter:grayscale(.4);box-shadow:none!important}
+
+/* ───────── Pílulas e tags ───────── */
+.pill{
+  border-radius:999px!important;padding:11px 16px!important;font-weight:700;font-size:13px;
+  background:linear-gradient(180deg,#2b2c2f,#1c1d1f)!important;border:1px solid rgba(255,255,255,.09)!important;color:#d7d2c6!important;
+  transition:transform .15s ease,box-shadow .2s ease;
+}
+.pill:active{transform:scale(.96)}
+.pill.active{
+  background:var(--gold-grad)!important;color:#1a1409!important;border-color:rgba(255,238,190,.7)!important;
+  box-shadow:0 6px 18px -4px rgba(216,184,120,.55),inset 0 1px 0 rgba(255,255,255,.55);
+}
+.tag{
+  border-radius:999px!important;padding:6px 12px!important;letter-spacing:.8px;
+  background:var(--gold-grad)!important;color:#1a1409!important;
+  box-shadow:0 0 14px rgba(216,184,120,.35);
+}
+.rowgap{scrollbar-width:none;-ms-overflow-style:none;padding:4px 2px 8px}
+.rowgap::-webkit-scrollbar{display:none}
+
+/* ───────── Barra inferior flutuante ───────── */
+.tabs{
+  left:12px!important;right:12px!important;bottom:calc(10px + env(safe-area-inset-bottom))!important;
+  max-width:696px;margin:0 auto;padding:8px 6px!important;
+  border:1px solid transparent!important;border-radius:28px!important;
+  background:linear-gradient(160deg,rgba(40,41,45,.82),rgba(14,15,17,.9)) padding-box,
+             linear-gradient(150deg,rgba(246,228,176,.45),rgba(255,255,255,.06) 40%,rgba(216,184,120,.25)) border-box!important;
+  backdrop-filter:blur(22px) saturate(1.4);-webkit-backdrop-filter:blur(22px) saturate(1.4);
+  box-shadow:0 18px 40px -8px rgba(0,0,0,.9),0 0 30px -10px rgba(216,184,120,.3)!important;
+}
+.tabs button{
+  position:relative;border-radius:18px!important;padding:7px 0!important;color:#8f9299!important;
+  transition:color .2s ease,transform .15s ease;
+}
+.tabs button:active{transform:scale(.94)}
+.tabs button.active{color:var(--gold-1)!important}
+.tabs button.active svg{filter:drop-shadow(0 0 7px rgba(246,228,176,.7))}
+.tabs button.active::before{
+  content:"";position:absolute;inset:0;border-radius:18px;z-index:-1;
+  background:linear-gradient(180deg,rgba(216,184,120,.20),rgba(216,184,120,.04));
+  box-shadow:inset 0 0 0 1px rgba(216,184,120,.22);
+}
+.tabs button.active::after{
+  content:"";position:absolute;bottom:-1px;left:50%;width:18px;height:3px;margin-left:-9px;border-radius:3px;
+  background:var(--gold-grad);box-shadow:0 0 10px rgba(246,228,176,.8);
+}
+
+/* ───────── Formulários ───────── */
+input,select{
+  border-radius:var(--r-md)!important;min-height:46px;color:#f6f1e6!important;
+  background:linear-gradient(180deg,#1b1c1f,#222326)!important;
+  border:1px solid rgba(255,255,255,.1)!important;
+  box-shadow:inset 0 2px 5px rgba(0,0,0,.45);
+  transition:border-color .2s ease,box-shadow .2s ease;
+}
+input::placeholder{color:#6f6d68}
+input:focus,select:focus{
+  outline:none!important;border-color:rgba(216,184,120,.8)!important;
+  box-shadow:inset 0 2px 5px rgba(0,0,0,.45),0 0 0 3px rgba(216,184,120,.22)!important;
+}
+button:focus-visible{outline:2px solid var(--gold-2)!important;outline-offset:2px}
+.field label{color:#b7b2a5;font-weight:600;letter-spacing:.3px}
+
+/* ───────── Treino: séries e exercícios ───────── */
+.exercise{border-top:0!important;padding:18px 0;position:relative}
+.exercise+.exercise::before{
+  content:"";position:absolute;top:0;left:0;right:0;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(216,184,120,.35),transparent);
+}
+.sets button{
+  border-radius:var(--r-sm)!important;border:1px solid rgba(255,255,255,.12)!important;
+  background:linear-gradient(180deg,#303134,#202124)!important;color:#cfcabd;
+  transition:transform .12s ease,box-shadow .2s ease;
+}
+.sets button:active{transform:scale(.92)}
+.sets input{border-radius:var(--r-sm)!important}
+.sets button.done,.check.done{
+  background:var(--gold-grad)!important;border-color:rgba(255,238,190,.7)!important;color:#1a1409!important;font-weight:900;
+  box-shadow:0 0 16px rgba(216,184,120,.55),inset 0 1px 0 rgba(255,255,255,.55)!important;
+}
+.listrow{border-color:rgba(255,255,255,.07)!important}
+.empty{color:#85827a}
+details summary{cursor:pointer}
+
+/* ───────── Progresso ───────── */
+.progress{
+  border-radius:999px!important;height:10px!important;background:linear-gradient(180deg,#1a1b1d,#2a2b2e)!important;
+  box-shadow:inset 0 2px 4px rgba(0,0,0,.6);overflow:hidden;
+}
+.progress i{
+  border-radius:999px!important;position:relative;
+  background:linear-gradient(90deg,#8b6a32,#d8b878 60%,#f6e4b0)!important;
+  box-shadow:0 0 14px rgba(216,184,120,.65);
+  transition:width .7s cubic-bezier(.2,.8,.2,1);
+}
+.progress i::after{
+  content:"";position:absolute;inset:0;border-radius:inherit;
+  background:linear-gradient(180deg,rgba(255,255,255,.4),transparent 55%);
+}
+.bar{background:var(--gold-grad)!important}
+
+/* ───────── Gráfico de evolução ───────── */
+.trend-svg{
+  border-radius:20px!important;border:1px solid rgba(216,184,120,.2)!important;
+  background:
+    radial-gradient(90% 80% at 50% 0%,rgba(216,184,120,.12),transparent 70%),
+    linear-gradient(180deg,#17181a,#0f1011)!important;
+}
+.trend-svg path[stroke="#c7ff57"]{stroke:#e6cd94;filter:drop-shadow(0 0 5px rgba(230,205,148,.7))}
+.trend-svg circle{fill:#f6e4b0!important;stroke:#17181a;stroke-width:2;filter:drop-shadow(0 0 4px rgba(246,228,176,.8))}
+
+/* ───────── Modal ───────── */
+.modal-backdrop{background:rgba(2,2,3,.7)!important;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);animation:fade .25s ease both}
+.modal-sheet{
+  position:relative;border:1px solid transparent!important;border-bottom:0!important;border-radius:32px 32px 0 0!important;
+  background:linear-gradient(160deg,#2a2b2e,#141517 70%) padding-box,
+             linear-gradient(160deg,rgba(246,228,176,.55),rgba(255,255,255,.06) 40%,rgba(216,184,120,.3)) border-box!important;
+  box-shadow:0 -24px 80px rgba(0,0,0,.85),0 -4px 40px -10px rgba(216,184,120,.3)!important;
+  animation:sheet .35s cubic-bezier(.2,.8,.2,1) both;
+}
+.modal-sheet::before{
+  content:"";display:block;width:44px;height:4px;border-radius:4px;margin:-10px auto 14px;
+  background:linear-gradient(90deg,transparent,rgba(216,184,120,.8),transparent);
+}
+
+/* ───────── Toast ───────── */
+#toast{
+  border-radius:999px!important;bottom:calc(104px + env(safe-area-inset-bottom))!important;padding:12px 22px!important;
+  background:var(--gold-grad)!important;color:#1a1409!important;
+  box-shadow:0 12px 30px -6px rgba(0,0,0,.8),0 0 28px rgba(216,184,120,.45);
+}
+
+/* ───────── Mapa muscular ───────── */
+.iron-anatomy{
+  margin:14px 0;padding:14px;border:1px solid transparent;border-radius:22px!important;
+  background:linear-gradient(150deg,#262729,#111214) padding-box,
+             linear-gradient(150deg,rgba(216,184,120,.4),rgba(255,255,255,.05) 45%,rgba(216,184,120,.2)) border-box!important;
+}
+.iron-anatomy-head{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:9px}
+.iron-anatomy-title{font-size:11px;font-weight:800;letter-spacing:1.6px;background:var(--gold-grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.iron-anatomy-meta{font-family:var(--text);font-size:11px;color:#bbb5a9;line-height:1.5}
+.iron-anatomy-svg{display:block;width:100%;max-width:320px;height:auto;margin:0 auto}
+.iron-anatomy .legend{display:flex;justify-content:center;gap:14px;font-size:10px;color:#b8b4ac;margin-top:7px}
+.iron-anatomy .dot{display:inline-block;width:8px;height:8px;margin-right:5px;background:var(--gold-2);border-radius:50%;box-shadow:0 0 8px rgba(216,184,120,.8)}
+.iron-anatomy .dot.secondary{background:#8e9193;box-shadow:none}
+.iron-anatomy details summary{color:var(--gold-1);font-size:12px;padding:6px 0}
+.iron-anatomy .unknown{font-size:12px;color:#c5beb1;padding:15px 0;text-align:center}
+.iron-anatomy svg{border-radius:16px!important}
+.iron-anatomy svg .body-shape{fill:#cfcfcb;stroke:#4a4a49;stroke-width:1.4}
+.iron-anatomy svg .muscle{stroke:#777;stroke-width:1;fill:#a2a3a1}
+.iron-anatomy svg .primary{fill:#d8b878;stroke:#ab8342;filter:drop-shadow(0 0 5px rgba(216,184,120,.75))}
+.iron-anatomy svg .secondary{fill:#8e9296;stroke:#62666a}
+.iron-anatomy svg .seam{fill:none;stroke:#575857;stroke-width:1.2;opacity:.65}
+.anatomy-toggle{padding:7px 9px!important;min-height:32px!important;border-radius:999px!important}
+
+/* ───────── Animações ───────── */
+@keyframes rise{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+@keyframes fade{from{opacity:0}to{opacity:1}}
+@keyframes sheet{from{transform:translateY(40px);opacity:0}to{transform:none;opacity:1}}
+@keyframes breathe{0%,100%{opacity:.75;transform:scale(1)}50%{opacity:1;transform:scale(1.12)}}
+#app>*{animation:rise .45s cubic-bezier(.2,.8,.2,1) both}
+#app>*:nth-child(2){animation-delay:.04s}#app>*:nth-child(3){animation-delay:.08s}
+#app>*:nth-child(4){animation-delay:.12s}#app>*:nth-child(5){animation-delay:.16s}
+#app>*:nth-child(n+6){animation-delay:.2s}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+
+/* ───────── Telas pequenas ───────── */
+@media(max-width:390px){
+  .brand-logo img{width:65px;height:65px}
+  header>.tag{font-size:9px!important;padding:7px 10px!important}
+  .card{border-radius:23px!important}
+  h1{font-size:27px!important}
+}
